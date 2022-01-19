@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html id="gradient">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Gradient</title>
+		<style>
+		
+			.container{
+				height: 520px;
+				width:40%;
+				margin:auto;
+				border: 4px solid black;
+				overflow:auto;
+				background: rgba(255, 255, 255, 0.2)
+			}
+			
+			html,body{
+				height: 100%;
+				width: 100%;
+				margin:0;
+				padding:0;
+				
+			}
+			
+
+			
+			h1{
+				text-align:center;
+			}
+			
+			.header1{
+				height:10%;
+			}
+			
+			.container{
+				height:90%;
+			}
+			
+			.form1{
+				padding:15px;
+			}
+			
+			.inputNumber{
+				width:50px;
+			}
+			
+
+		
+		</style>
+		
+	</head>
+
+	<body>
+	<div>
+				
+		
+		<div class = "container">
+			<div class = "header1">
+				<h1>Dominik Cisło</h1>
+			</div>	
+		
+			<form class = "form1">
+			
+				<label>Wybierz ilośc kolorów: </label>
+				<select id="amountOfColors" onchange="selectAmountOfColors(this.value)">
+					<option value="2" selected>2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select><br><hr>
+				
+				<!--Slider do wartości hex 1-->
+				<label>Czerwony:</label><br>
+				<input id="red1" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+				<input class = "inputNumber" type="number" id="outputRed1" value="255" oninput="ustawKolorField(event)"></input><br>
+				
+				<label>Zielony:</label><br>
+				<input id="green1" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+				<input class = "inputNumber" type="number" id="outputGreen1" value="255" oninput="ustawKolorField(event)"></input><br>
+				
+				<label>Niebieski:</label><br>
+				<input id="blue1" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+				<input class = "inputNumber" type="number"id="outputBlue1" value="255" oninput="ustawKolorField(event)"></input><br><br>
+				
+				<!--Input typu color do ręcznej zmiany 1-->
+				<input type="color" class="kolor1" name="kolor1" value="#FFFFFF" oninput="ustawKolorSlider(event)" disabled>
+				
+				
+				<hr>
+				
+				<!--Slider do wartości hex 2-->
+				<label>Czerwony:</label><br>
+				<input id="red2" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+				<input class = "inputNumber" type="number" id="outputRed2" value="255" oninput="ustawKolorField(event)"></input><br>
+				
+				<label>Zielony:</label><br>
+				<input id="green2" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+				<input class = "inputNumber" type="number" id="outputGreen2" value="255" oninput="ustawKolorField(event)"></input><br>
+				
+				<label>Niebieski:</label><br>
+				<input id="blue2" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+				<input class = "inputNumber" type="number" id="outputBlue2" value="255" oninput="ustawKolorField(event)"></input><br><br>
+				
+				<!--Input typu color do ręcznej zmiany 3-->
+				<input type="color" class="kolor2" name="kolor2" value="#FFFFFF" oninput="ustawKolorSlider(event)" disabled>
+				<span id="wartosc2"></span><br>
+				
+				<div id="thirdColor">
+					<hr>
+					
+					<!--Slider do wartości hex 3-->
+					<label>Czerwony:</label><br>
+					<input id="red3" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+					<input class = "inputNumber" type="number" id="outputRed3" value="255" oninput="ustawKolorField(event)"></input><br>
+					
+					<label>Zielony:</label><br>
+					<input id="green3" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+					<input class = "inputNumber" type="number" id="outputGreen3" value="255" oninput="ustawKolorField(event)"></input><br>
+					
+					<label>Niebieski:</label><br>
+					<input id="blue3" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+					<input class = "inputNumber" type="number" id="outputBlue3" value="255" oninput="ustawKolorField(event)"></input><br><br>
+					
+					<!--Input typu color do ręcznej zmiany 2-->
+					<input type="color" class="kolor3" name="kolor3" value="#FFFFFF" oninput="ustawKolorSlider(event)" disabled>
+					<span id="wartosc3"></span><br>
+				</div>
+				
+				<div id="fourthColor">
+					<hr>
+					
+					<!--Slider do wartości hex 4-->
+					<label>Czerwony:</label><br>
+					<input id="red4" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+					<input class = "inputNumber" type="number" id="outputRed4" value="255" oninput="ustawKolorField(event)"></input><br>
+					
+					<label>Zielony:</label><br>
+					<input id="green4" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+					<input class = "inputNumber" type="number" id="outputGreen4" value="255" oninput="ustawKolorField(event)"></input><br>
+					
+					<label>Niebieski:</label><br>
+					<input id="blue4" type="range" min="0" max="255" value="255" oninput="ustawKolorSlider(event)" />
+					<input class = "inputNumber" type="number" id="outputBlue4" value="255" oninput="ustawKolorField(event)"></input><br><br>
+					
+					<!--Input typu color do ręcznej zmiany 2-->
+					<input type="color" class="kolor4" name="kolor4" value="#FFFFFF" oninput="ustawKolorSlider(event)" disabled>
+					<span id="wartosc4"></span><br>
+				</div>
+				
+				<hr>
+				<!--Wybor kierunku gradientu-->
+				<select name="kierunek" oninput="ustawKolorSlider(event)"> 
+				  <option value="to right">Do prawej strony</option>
+				  <option value="to right bottom">Do prawego dołu</option>
+				  <option value="to right top">Do prawej góry</option>
+				  <option value="to left">Do lewej</option>
+				  <option value="to left bottom">Do lewego dołu</option>
+				  <option value="to left top">Do lewej góry</option>
+				  <option value="to bottom">Do dołu</option>
+				  <option value="to top">Do góry</option>
+				</select>
+				
+				<!--Wybor ksztaltu gradientu radialnego-->
+				<select name="ksztalt" oninput="ustawKolorSlider(event)" hidden> 
+				  <option value="circle">Okgrąg</option>
+				  <option value="ellipse">Elipsa</option>
+				</select>
+				
+				<hr>
+				<!--Wybor rodzaju gradientu-->
+				<select name="typ" oninput="ustawKolorSlider(event)"> 
+				  <option value="linear-gradient">Linearny</option>
+				  <option value="radial-gradient">Okrągły</option>
+				</select>
+				
+				
+			</form>
+		</div>
+		
+
+		
+		<script>
+			var kontener_gradient = document.getElementById("gradient")
+			var kierunek = document.getElementsByName("kierunek")[0] <!--Kierunek gradientu dla linearnego-->
+			var ksztalt = document.getElementsByName("ksztalt")[0] <!--Ksztalt gradientu dla linearnego-->
+			
+			var typ = document.getElementsByName("typ")[0] <!--Typ gradientu-->
+			var amount = document.getElementById("amountOfColors");
+			
+			var kolor1 = document.querySelector(".kolor1")	<!--Okienko z kolorem 1-->
+			var kolor2 = document.querySelector(".kolor2")	<!--Okienko z kolorem 2-->
+			var kolor3 = document.querySelector(".kolor3")	<!--Okienko z kolorem 2-->
+			var kolor4 = document.querySelector(".kolor4")	<!--Okienko z kolorem 2-->
+			
+			<!--Wartosci output-->
+			var outputRed1 = document.querySelector('#outputRed1');
+			var outputGreen1 = document.querySelector('#outputGreen1');
+			var outputBlue1 = document.querySelector('#outputBlue1');
+			
+			var outputRed2 = document.querySelector('#outputRed2');
+			var outputGreen2 = document.querySelector('#outputGreen2');
+			var outputBlue2 = document.querySelector('#outputBlue2');
+			
+			var outputRed3 = document.querySelector('#outputRed3');
+			var outputGreen3 = document.querySelector('#outputGreen3');
+			var outputBlue3 = document.querySelector('#outputBlue3');
+			
+			var outputRed4 = document.querySelector('#outputRed4');
+			var outputGreen4 = document.querySelector('#outputGreen4');
+			var outputBlue4 = document.querySelector('#outputBlue4');
+			
+			<!--Wartoci z pierwszego slidera-->
+			var red1 = document.querySelector('#red1')
+			var green1 = document.querySelector('#green1')
+			var blue1 = document.querySelector('#blue1')
+			var wartoscHex1;
+			
+			<!--Wartoci z drugiego slidera-->
+			var red2 = document.querySelector('#red2')
+			var green2 = document.querySelector('#green2')
+			var blue2 = document.querySelector('#blue2')
+			var wartoscHex2;
+			
+			<!--Wartoci z trzeciego slidera-->
+			var red3 = document.querySelector('#red3')
+			var green3 = document.querySelector('#green3')
+			var blue3 = document.querySelector('#blue3')
+			var wartoscHex3;
+			
+			<!--Wartoci z czwartego slidera-->
+			var red4 = document.querySelector('#red4')
+			var green4 = document.querySelector('#green4')
+			var blue4 = document.querySelector('#blue4')
+			var wartoscHex4;
+			
+			<!-- kolory 3 i 4 są na początek schowane-->
+			document.getElementById("thirdColor").style.display ="none";
+			document.getElementById("fourthColor").style.display ="none";
+			
+			function ustawKolorField(){	<!--Event zmiany koloru przy pomocy sliderów-->	
+			
+				<!--Warunki do sprawdzania zakresu, jesli mniejsze niz 0, ustaw na 0, jesli wieksze niz 255, ustaw na 255-->	
+				if(outputRed1.value<0){outputRed1.value=0}
+				if(outputRed1.value>255){outputRed1.value=255}
+				if(outputRed1.value==''){outputRed1.value=0}
+				
+				if(outputGreen1.value<0){outputGreen1.value=0}
+				if(outputGreen1.value>255){outputGreen1.value=255}
+				if(outputGreen1.value==''){outputGreen1.value=0}
+				
+				if(outputBlue1.value<0){outputBlue1.value=0}
+				if(outputBlue1.value>255){outputBlue1.value=255}
+				if(outputBlue1.value==''){outputBlue1.value=0}
+				
+				if(outputRed2.value<0){outputRed2.value=0}
+				if(outputRed2.value>255){outputRed2.value=255}
+				if(outputRed2.value==''){outputRed2.value=0}
+				
+				if(outputGreen2.value<0){outputGreen2.value=0}
+				if(outputGreen2.value>255){outputGreen2.value=255}
+				if(outputGreen2.value==''){outputGreen2.value=0}
+				
+				if(outputBlue2.value<0){outputBlue2.value=0}
+				if(outputBlue2.value>255){outputBlue2.value=255}
+				if(outputBlue2.value==''){outputBlue2.value=0}
+				
+				if(outputRed3.value<0){outputRed3.value=0}
+				if(outputRed3.value>255){outputRed3.value=255}
+				if(outputRed3.value==''){outputRed3.value=0}
+				
+				if(outputGreen3.value<0){outputGreen3.value=0}
+				if(outputGreen3.value>255){outputGreen3.value=255}
+				if(outputGreen3.value==''){outputGreen3.value=0}
+				
+				if(outputBlue3.value<0){outputBlue3.value=0}
+				if(outputBlue3.value>255){outputBlue3.value=255}
+				if(outputBlue3.value==''){outputBlue3.value=0}
+				
+				if(outputRed4.value<0){outputRed4.value=0}
+				if(outputRed4.value>255){outputRed4.value=255}
+				if(outputRed4.value==''){outputRed4.value=0}
+				
+				if(outputGreen4.value<0){outputGreen4.value=0}
+				if(outputGreen4.value>255){outputGreen4.value=255}
+				if(outputGreen4.value==''){outputGreen4.value=0}
+				
+				if(outputBlue4.value<0){outputBlue4.value=0}
+				if(outputBlue4.value>255){outputBlue4.value=255}
+				if(outputBlue4.value==''){outputBlue4.value=0}
+				
+				
+				var red1_hex = parseInt(outputRed1.value, 10).toString(16);
+				var green1_hex = parseInt(outputGreen1.value, 10).toString(16);
+				var blue1_hex = parseInt(outputBlue1.value, 10).toString(16);
+				wartoscHex1 = "#"+pad(red1_hex) + pad(green1_hex) + pad(blue1_hex);
+				kolor1.value = wartoscHex1;
+				
+				red1.value = outputRed1.value;
+				green1.value = outputGreen1.value;
+				blue1.value = outputBlue1.value;
+				
+				var red2_hex = parseInt(outputRed2.value, 10).toString(16);
+				var green2_hex = parseInt(outputGreen2.value, 10).toString(16);
+				var blue2_hex = parseInt(outputBlue2.value, 10).toString(16);
+				wartoscHex2 = "#"+pad(red2_hex) + pad(green2_hex) + pad(blue2_hex);
+				kolor2.value = wartoscHex2;
+				
+				red2.value = outputRed2.value;
+				green2.value = outputGreen2.value;
+				blue2.value = outputBlue2.value;
+				
+				var red3_hex = parseInt(outputRed3.value, 10).toString(16);
+				var green3_hex = parseInt(outputGreen3.value, 10).toString(16);
+				var blue3_hex = parseInt(outputBlue3.value, 10).toString(16);
+				wartoscHex3 = "#"+pad(red3_hex) + pad(green3_hex) + pad(blue3_hex);
+				kolor3.value = wartoscHex3;
+				
+				red3.value = outputRed3.value;
+				green3.value = outputGreen3.value;
+				blue3.value = outputBlue3.value;
+				
+				var red4_hex = parseInt(outputRed4.value, 10).toString(16);
+				var green4_hex = parseInt(outputGreen4.value, 10).toString(16);
+				var blue4_hex = parseInt(outputBlue4.value, 10).toString(16);
+				wartoscHex4 = "#"+pad(red4_hex) + pad(green4_hex) + pad(blue4_hex);
+				kolor4.value = wartoscHex4;
+				
+				red4.value = outputRed4.value;
+				green4.value = outputGreen4.value;
+				blue4.value = outputBlue4.value;
+				
+				if(amount.value == 2)
+				{
+					if(typ.value == 'linear-gradient')
+					{
+						kontener_gradient.style.background = "linear-gradient("+kierunek.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ")";
+						kierunek.style.display="block";
+						ksztalt.style.display="none";
+					}
+					else if(typ.value == "radial-gradient")
+					{
+						kontener_gradient.style.background = "radial-gradient("+ksztalt.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ")";
+						kierunek.style.display="none";
+						ksztalt.style.display="block";
+					}
+					else
+					{
+						console.log("Zły gradient")
+					}
+				}
+				
+				if(amount.value == 3)
+				{
+					if(typ.value == 'linear-gradient')
+					{
+						kontener_gradient.style.background = "linear-gradient("+kierunek.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+")";
+						kierunek.style.display="block";
+						ksztalt.style.display="none";
+					}
+					else if(typ.value == "radial-gradient")
+					{
+						kontener_gradient.style.background = "radial-gradient("+ksztalt.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+")";
+						kierunek.style.display="none";
+						ksztalt.style.display="block";
+					}
+					else
+					{
+						console.log("Zły gradient")
+					}
+				}
+				
+				if(amount.value == 4)
+				{
+					
+					if(typ.value == 'linear-gradient')
+					{
+						kontener_gradient.style.background = "linear-gradient("+kierunek.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+","+ kolor4.value+")";
+						kierunek.style.display="block";
+						ksztalt.style.display="none";
+					}
+					else if(typ.value == "radial-gradient")
+					{
+						kontener_gradient.style.background = "radial-gradient("+ksztalt.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+","+ kolor4.value+")";
+						kierunek.style.display="none";
+						ksztalt.style.display="block";
+					}
+					else
+					{
+						console.log("Zły gradient")
+					}
+				}
+			}
+			
+			function ustawKolorSlider(){	<!--Event zmiany koloru przy pomocy inputów-->	
+				var red1_hex = parseInt(red1.value, 10).toString(16);
+				var green1_hex = parseInt(green1.value, 10).toString(16);
+				var blue1_hex = parseInt(blue1.value, 10).toString(16);
+				wartoscHex1 = "#"+pad(red1_hex) + pad(green1_hex) + pad(blue1_hex);
+				kontener_gradient.style.backgroundColor = wartoscHex1;
+				kolor1.value = wartoscHex1;
+				
+				outputRed1.value = red1.value;
+				outputGreen1.value = green1.value;
+				outputBlue1.value = blue1.value;
+				
+				var red2_hex = parseInt(red2.value, 10).toString(16);
+				var green2_hex = parseInt(green2.value, 10).toString(16);
+				var blue2_hex = parseInt(blue2.value, 10).toString(16);
+				wartoscHex2 = "#"+pad(red2_hex) + pad(green2_hex) + pad(blue2_hex);
+				kontener_gradient.style.backgroundColor = wartoscHex2;
+				kolor2.value = wartoscHex2;
+				
+				outputRed2.value = red2.value;
+				outputGreen2.value = green2.value;
+				outputBlue2.value = blue2.value;
+				
+				
+				var red3_hex = parseInt(outputRed3.value, 10).toString(16);
+				var green3_hex = parseInt(outputGreen3.value, 10).toString(16);
+				var blue3_hex = parseInt(outputBlue3.value, 10).toString(16);
+				wartoscHex3 = "#"+pad(red3_hex) + pad(green3_hex) + pad(blue3_hex);
+				kolor3.value = wartoscHex3;
+				
+				outputRed3.value = red3.value;
+				outputGreen3.value = green3.value;
+				outputBlue3.value = blue3.value;
+				
+				var red4_hex = parseInt(outputRed4.value, 10).toString(16);
+				var green4_hex = parseInt(outputGreen4.value, 10).toString(16);
+				var blue4_hex = parseInt(outputBlue4.value, 10).toString(16);
+				wartoscHex4 = "#"+pad(red4_hex) + pad(green4_hex) + pad(blue4_hex);
+				kolor4.value = wartoscHex4;
+				
+				outputRed4.value = red4.value;
+				outputGreen4.value = green4.value;
+				outputBlue4.value = blue4.value;
+				
+				
+				if(amount.value == 2)
+				{
+					if(typ.value == 'linear-gradient')
+					{
+						kontener_gradient.style.background = "linear-gradient("+kierunek.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ")";
+						kierunek.style.display="block";
+						ksztalt.style.display="none";
+					}
+					else if(typ.value == "radial-gradient")
+					{
+						kontener_gradient.style.background = "radial-gradient("+ksztalt.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ")";
+						kierunek.style.display="none";
+						ksztalt.style.display="block";
+					}
+					else
+					{
+						console.log("Zły gradient")
+					}
+				}
+				
+				if(amount.value == 3)
+				{
+					if(typ.value == 'linear-gradient')
+					{
+						kontener_gradient.style.background = "linear-gradient("+kierunek.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+")";
+						kierunek.style.display="block";
+						ksztalt.style.display="none";
+					}
+					else if(typ.value == "radial-gradient")
+					{
+						kontener_gradient.style.background = "radial-gradient("+ksztalt.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+")";
+						kierunek.style.display="none";
+						ksztalt.style.display="block";
+					}
+					else
+					{
+						console.log("Zły gradient")
+					}
+				}
+				
+				if(amount.value == 4)
+				{
+					
+					if(typ.value == 'linear-gradient')
+					{
+						kontener_gradient.style.background = "linear-gradient("+kierunek.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+","+ kolor4.value+")";
+						kierunek.style.display="block";
+						ksztalt.style.display="none";
+					}
+					else if(typ.value == "radial-gradient")
+					{
+						kontener_gradient.style.background = "radial-gradient("+ksztalt.value+ ", "+ kolor1.value+ ","+ kolor2.value+ ","+ kolor3.value+","+ kolor4.value+")";
+						kierunek.style.display="none";
+						ksztalt.style.display="block";
+					}
+					else
+					{
+						console.log("Zły gradient")
+					}
+				}
+				
+			}
+
+			function pad(n){ <!-- wstawia zera między elementami liczby hex, gdy je trzeba
+				if(n.length<2)
+				{
+					return "0"+n
+				}
+				else{
+					
+					return n;
+				}
+			}
+			
+			<!--funkcje do pokazywania wybranej liczby kolorów-->
+			function selectAmountOfColors()
+			{
+				ustawKolorField();
+			
+				var amount = document.getElementById("amountOfColors").value;
+				
+				if(amount==2)
+				{
+					document.getElementById("thirdColor").style.display ="none";
+					document.getElementById("fourthColor").style.display ="none";
+				}
+				
+				if(amount==3)
+				{
+					document.getElementById("thirdColor").style.display ="block";
+					document.getElementById("fourthColor").style.display ="none";
+				}
+
+				if(amount==4)
+				{
+					document.getElementById("thirdColor").style.display ="block";
+					document.getElementById("fourthColor").style.display ="block";
+				}
+			}
+			
+		</script>
+		</div>
+	</body>
+</html>
